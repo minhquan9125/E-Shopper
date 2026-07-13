@@ -1,0 +1,21 @@
+/*************************
+*******Utilities CSS*****
+**************************/
+
+/* Rate/Stars */
+.star-ratings {
+    float: right;
+}
+
+.star-container {
+    padding: 0 2px!important;
+}
+
+.widget-svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.through {
+    text-decoration: line-through;
+}

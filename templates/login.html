@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+    {% include 'layout/header.html' %}
+    
+    <section id="form" method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-1">
+                    <div class="signup-form"> <!-- Hoặc giữ login-form tùy css của bạn -->
+                        <h2>Login to your account</h2>
+                        
+                        {% if error and error.login_failed %}
+                            <div style="color: white; background-color: #ff4d4d; padding: 10px; margin-bottom: 15px; border-radius: 4px;">
+                                {{ error.get('login_failed') }}
+                            </div>
+                        {% endif %}
+
+                        <form method="POST" action="/login">
+                            
+
+                            <input type="text" name="email" placeholder="Email Address" />
+                            {% if error and error.email %}
+                                <span style="color: red; display: block; margin-top: 5px; margin-bottom: 10px;">{{ error.get('email') }}</span>
+                            {% endif %}
+
+                            <input type="password" name="password" placeholder="Password" />
+                            {% if error and error.password %}
+                                <span style="color: red; display: block; margin-top: 5px; margin-bottom: 10px;">{{ error.get('password') }}</span>
+                            {% endif %}
+                            
+                            <button type="submit" class="btn btn-default">Login</button>
+                                {% if message %}
+                                    <p>{{ message }}</p>
+                                {% endif %}
+                        </form>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+    
+    {% include 'layout/footer.html' %}
+</body>
+</html>

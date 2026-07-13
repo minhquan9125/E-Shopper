@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog | E-Shopper</title>
+  <!-- Các file CSS -->
+ <!-- Chuyển đổi toàn bộ link CSS sang Flask Static -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/price-range.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/ico/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='images/ico/apple-touch-icon-57-precomposed.png') }}">
+</head>
+
+<body>
+{% include "layout/header.html" %} 
+<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Account</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							
+							
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="{{ url_for('account_bp.account') }}">account</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="{{ url_for('my_products') }}">My product</a></h4>
+								</div>
+							</div>
+							
+						</div><!--/category-products-->
+					
+						
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="table-responsive cart_info">
+						<table class="table table-condensed table-bordered">
+							<thead >
+								<tr class="cart_menu"  >
+									<td class="image">image</td>
+									<td class="description">name</td>
+									<td class="price">price</td>
+									<td class="total">action</td>
+									
+								</tr>
+							</thead>
+							<tbody>
+
+								
+								<tr>
+									<td class="cart_product">
+										<a href=""><img src="images/cart/one.png" alt=""></a>
+									</td>
+									<td class="cart_description">
+										<h4><a href="">Colorblock Scuba</a></h4>
+										
+									</td>
+									<td class="cart_price">
+										<p>$59</p>
+									</td>
+									
+									<td class="cart_total">
+										<a>edit</a>
+										<a>delete</a>
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="cart_product">
+										<a href=""><img src="images/cart/one.png" alt=""></a>
+									</td>
+									<td class="cart_description">
+										<h4><a href="">Colorblock Scuba</a></h4>
+										
+									</td>
+									<td class="cart_price">
+										<p>$59</p>
+									</td>
+									
+									<td class="cart_total">
+										<a>edit</a>
+										<a>delete</a>
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="cart_product">
+										<a href=""><img src="images/cart/one.png" alt=""></a>
+									</td>
+									<td class="cart_description">
+										<h4><a href="">Colorblock Scuba</a></h4>
+										
+									</td>
+									<td class="cart_price">
+										<p>$59</p>
+									</td>
+									
+									<td class="cart_total">
+										<a>edit</a>
+										<a>delete</a>
+									</td>
+									
+								</tr>
+
+
+
+							
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% include "layout/footer.html" %}
+</body>
+
+
+
+
+
+
+
+
+

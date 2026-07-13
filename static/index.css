@@ -1,0 +1,26 @@
+/*************************
+**CSS MODULE IMPORTS**
+*Import all separated CSS modules
+**************************/
+
+/* Global Typography & Base Styles */
+@import url('./typography.css');
+
+/* Layout Components */
+@import url('./header.css');
+@import url('./footer.css');
+
+/* Pages */
+@import url('./main-home.css');
+@import url('./login.css');
+@import url('./account.css');
+@import url('./shop.css');
+@import url('./product-details.css');
+@import url('./cart.css');
+@import url('./checkout.css');
+@import url('./blog.css');
+@import url('./contact.css');
+@import url('./404.css');
+
+/* Utilities */
+@import url('./utils.css');

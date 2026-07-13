@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | E-Shopper</title>
+
+    
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    {% include 'layout/header.html' %}
+
+    <main>
+
+        {% block content %}
+        
+        {% endblock %}
+    
+    </main>
+
+    <!-- layout/footer.html -->
+    {% include 'layout/footer.html' %}
+
+</body>
+
+</html>

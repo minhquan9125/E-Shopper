@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/ico/favicon.ico') }}">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='images/ico/apple-touch-icon-57-precomposed.png') }}">
+</head>
+<body>
+    {% include "layout/header.html" %}
+
+    <section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Account</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							
+							
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="{{ url_for('account_bp.account') }}">Account</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="{{ url_for('my_products') }}">My product</a></h4>
+								</div>
+							</div>
+							
+						</div><!--/category-products-->
+					
+						
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="blog-post-area">
+						<h2 class="title text-center">Update user</h2>
+						 <div class="signup-form"><!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form action="{{ url_for('account_bp.account') }}" method="POST">
+									<input type="text" name="name" placeholder="Name"/>
+									{% if message and message.name_new %}
+										<span style="color: red;">{{ message.name_new }}</span>
+									{% endif %}
+									<input type="email" name="email" placeholder="Email Address"/>
+									{% if message and message.email_new %}
+										<span style="color: red;">{{ message.email_new }}</span>
+									{% endif %}
+									<input type="password" name="password" placeholder="Password"/>
+									{% if message and message.password_new %}
+										<span style="color: red;">{{ message.password_new }}</span>
+									{% endif %}
+
+									
+									<button type="submit" class="btn btn-default">Update</button>
+									{% if message and message.success %}
+										<p style="color: green;">{{ message.success }}</p>
+									{% endif %}
+								</form>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    {% include "layout/footer.html" %}
+</body>
+</html>

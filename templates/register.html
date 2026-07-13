@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dang ky</title>
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    
+    <!-- ĐÃ XÓA các thuộc tính đi lạc ở thẻ section -->
+    <section id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-1">
+                    <div class="signup-form">
+                        <h2>New User Signup!</h2>
+                        <form action="/register" method="POST" enctype="multipart/form-data">
+                            
+                            <input type="text" name="username" placeholder="Name"/>
+                            {% if error and error.username %}
+                                <span style="color: red; display: block; margin-top: 5px;">{{ error.get('username') }}</span>
+                            {% endif %}
+                            
+                            <input type="email" name="email" placeholder="Email Address"/>
+                            {% if error and error.email %}
+                                <span style="color: red; display: block; margin-top: 5px;">{{ error.get('email') }}</span>
+                            {% endif %}
+                            
+                            <input type="password" name="password" placeholder="Password"/>
+                            {% if error and error.password %}
+                                <span style="color: red; display: block; margin-top: 5px;">{{ error.get('password') }}</span>
+                            {% endif %}
+                            
+                            <input type="file" name="avatar" accept="image/*" />
+                            
+                            {% if error and error.file %}
+                                <span style="color: red; display: block; margin-top: 5px;">{{ error.get('file') }}</span>
+                            {% endif %}
+                            
+                            <button type="submit" class="btn btn-default">Signup</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {% include 'layout/footer.html' %}
+</body>
+</html>
