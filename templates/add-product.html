@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>E-Shopper</title>
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='price-range.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='animate.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='responsive.css') }}" rel="stylesheet">     
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/ico/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='images/ico/apple-touch-icon-57-precomposed.png') }}">
+</head>
+<body>
+        {% include "layout/header.html" %}
+    <section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Account</h2>
+						<div class="panel-group category-products" id="accordian">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="{{ url_for('account_bp.account') }}">account</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="{{ url_for('my_products') }}">My product</a></h4>
+								</div>
+							</div>
+							
+						</div>
+					
+						
+					</div>
+				</div>
+				<div class="col-sm-9">
+    <div class="panel panel-default">
+        <h3>Đăng sản phẩm mới</h3>
+        {% if error %}
+            <div >{{ error }}</div>
+        {% endif %}
+        <form action="{{ url_for('add_product.add_product') }}" method="post" enctype="multipart/form-data">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="id">ID</label>
+                        </td>
+                        <td>
+                            <input type="text" name="id" id="id" class="form-control" placeholder="Nhập id sản phẩm">
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>
+                            <label for="title">Title</label>
+                        </td>
+                        <td>
+                            <input type="text" name="title" id="title" class="form-control" placeholder="Nhập tên sản phẩm">
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>
+                            <label for="price">Price</label>
+                        </td>
+                        <td>
+                            <input type="text" name="price" id="price" class="form-control" placeholder="Nhập giá sản phẩm">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="image">Image</label>
+                        </td>
+                        <td>
+                            <input type="file" name="image" id="image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit">Lưu sản phẩm</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+				</div>
+			</div>
+		</div>
+	</section>
+            {% include "layout/footer.html" %}
+</body>
+</html>

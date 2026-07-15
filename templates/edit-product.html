@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product | E-Shopper</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+{% include "layout/header.html" %}
+<section>
+    <div class="container" style="padding: 30px 0;">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h3>Chỉnh sửa sản phẩm</h3>
+                <form method="post">
+                    <div>
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control" value="{{ product.title }}">
+                    </div>
+                    <div >
+                        <label>Price</label>
+                        <input type="text" name="price" class="form-control" value="{{ product.price }}">
+                    </div>
+                    <div>
+                        <label>Image</label>
+                        <input type="text" name="image" class="form-control" value="{{ product.image }}">
+                    </div>
+                    <button type="submit">Lưu</button>
+                    <a href="{{ url_for('my_products') }}">Quay lại</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "layout/footer.html" %}
+</body>
+</html>

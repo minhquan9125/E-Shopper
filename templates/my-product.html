@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog | E-Shopper</title>
-  <!-- Các file CSS -->
- <!-- Chuyển đổi toàn bộ link CSS sang Flask Static -->
+    <title>My Product | E-Shopper</title>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/prettyPhoto.css') }}" rel="stylesheet">
@@ -16,128 +14,82 @@
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/ico/favicon.ico') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='images/ico/apple-touch-icon-57-precomposed.png') }}">
 </head>
 
 <body>
-{% include "layout/header.html" %} 
+{% include "layout/header.html" %}
 <section>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="left-sidebar">
-						<h2>Account</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="{{ url_for('account_bp.account') }}">account</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="{{ url_for('my_products') }}">My product</a></h4>
-								</div>
-							</div>
-							
-						</div><!--/category-products-->
-					
-						
-					</div>
-				</div>
-				<div class="col-sm-9">
-					<div class="table-responsive cart_info">
-						<table class="table table-condensed table-bordered">
-							<thead >
-								<tr class="cart_menu"  >
-									<td class="image">image</td>
-									<td class="description">name</td>
-									<td class="price">price</td>
-									<td class="total">action</td>
-									
-								</tr>
-							</thead>
-							<tbody>
-
-								
-								<tr>
-									<td class="cart_product">
-										<a href=""><img src="images/cart/one.png" alt=""></a>
-									</td>
-									<td class="cart_description">
-										<h4><a href="">Colorblock Scuba</a></h4>
-										
-									</td>
-									<td class="cart_price">
-										<p>$59</p>
-									</td>
-									
-									<td class="cart_total">
-										<a>edit</a>
-										<a>delete</a>
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="cart_product">
-										<a href=""><img src="images/cart/one.png" alt=""></a>
-									</td>
-									<td class="cart_description">
-										<h4><a href="">Colorblock Scuba</a></h4>
-										
-									</td>
-									<td class="cart_price">
-										<p>$59</p>
-									</td>
-									
-									<td class="cart_total">
-										<a>edit</a>
-										<a>delete</a>
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="cart_product">
-										<a href=""><img src="images/cart/one.png" alt=""></a>
-									</td>
-									<td class="cart_description">
-										<h4><a href="">Colorblock Scuba</a></h4>
-										
-									</td>
-									<td class="cart_price">
-										<p>$59</p>
-									</td>
-									
-									<td class="cart_total">
-										<a>edit</a>
-										<a>delete</a>
-									</td>
-									
-								</tr>
-
-
-
-							
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Account</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="{{ url_for('account_bp.account') }}">Account</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="{{ url_for('my_products') }}">My product</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div style="margin-bottom: 15px;">
+                    <a href="{{ url_for('add_product.add_product') }}" class="btn btn-primary">Thêm sản phẩm</a>
+                </div>
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed table-bordered">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="id">ID</td>
+                                <td class="image">Image</td>
+                                <td class="description">Name</td>
+                                <td class="price">Price</td>
+                                <td class="total">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if products and products|length > 0 %}
+                                {% for product in products %}
+                                    <tr>
+                                        <td>{{ product.id }}</td>
+                                        <td class="cart_product">
+                                            <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.title }}" width="100">
+                                        </td>
+                                        <td class="cart_description">
+                                            <h4>{{ product.title }}</h4>
+                                        </td>
+                                        <td class="cart_price">
+                                            <p>${{ product.price }}</p>
+                                        </td>
+                                        <td class="cart_total">
+                                            <a href="{{ url_for('edit_product', product_id=product.id) }}">Edit</a>
+                                            <a href="{{ url_for('delete_product', product_id=product.id) }}">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="4" style="text-align:center; padding:20px;">
+                                        Bạn chưa có sản phẩm nào. <a href="{{ url_for('add_product.add_product') }}">Thêm ngay</a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% include "layout/footer.html" %}
 </body>
-
-
-
-
-
-
-
+</html>
 
 

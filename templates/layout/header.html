@@ -84,22 +84,21 @@
                         <div class="shop-menu clearfix pull-right">
                             <ul class="nav navbar-nav">
                                 <!-- <li><a href=""><i class="fa fa-user"></i> Account</a></li> -->
-                                <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="{{ url_for('cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li>
-                                    {% if 'username' in session %}
-                                        <a href="{{ url_for('account_bp.account') }}"><i class="fa fa-user"></i> Account</a>
-                                    {% else %}
-                                        <a href="{{ url_for('login.login') }}"><i class="fa fa-lock"></i> Login</a>
-                                    {% endif %}
-                                </li>
-                                {% if 'username' in session %}
+                                <!-- <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li> -->
+                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                            <li><a href="{{ url_for('cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li> 
+                            <li><a href="{{ url_for('add_product.add_product') }}"><i class="fa fa-shopping-cart"></i> Add</a></li>                                     
+                            {% if 'username' in session %}
+                                <li><a href="{{ url_for('account_bp.account') }}"><i class="fa fa-user"></i> Account</a></li>
+                            {% else %}
+                                <li><a href="{{ url_for('login.login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                            {% endif %}
+                            {% if 'username' in session %}
                                 <li><a href="{{ url_for('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
-                                {% else %}
-                                <li><a href="{{ url_for('register.register') }}"><i class="fa fa-lock"></i>Register</a></li>
-                                {% endif %}
-                            </ul>
+                            {% else %}
+                                <li><a href="{{ url_for('register.register') }}"><i class="fa fa-lock"></i> Register</a></li>
+                            {% endif %}
+                        </ul>
                         </div>
                     </div>
                 </div>

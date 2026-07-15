@@ -45,7 +45,6 @@ def account():
             try:   
                 cur.execute("UPDATE member SET name = %s, email = %s, password = %s WHERE id_user = %s", 
                             (name_new, email_new, hash_password, user_id))
-                
                 con.commit()
                 
                 session['username'] = {
